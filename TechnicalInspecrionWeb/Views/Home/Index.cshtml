@@ -1,0 +1,87 @@
+﻿@*@{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+
+
+
+
+@model IEnumerable<Car>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Список автомобилей транспортного предприятия</h1>
+
+    <table class="table">
+        @{
+            bool flag = true;
+            @foreach (var item in Model)
+            {
+                if (flag)
+                {
+                    flag = false;
+                    <thead>
+                        <tr>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.CarId)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.StateNumber)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.Mark)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.Model)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.TechnicalInspectionEndDate)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.InsuranseEndDate)</h4>
+                            </th>
+
+                        </tr>
+                    </thead>
+                }
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>@item.CarId</label>
+                        </td>
+                        <td>
+                            <label>@item.StateNumber</label>
+                        </td>
+                        <td>
+                            <label>@item.Mark</label>
+                        </td>
+                        <td>
+                            <label>@item.Model</label>
+                        </td>
+                        <td>
+                            <label>@item.TechnicalInspectionEndDate</label>
+                        </td>
+                        <td>
+                            <label>@item.InsuranseEndDate</label>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        }
+    </table>
+</div>
+
+
+
+
+
+
+

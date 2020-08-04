@@ -1,0 +1,63 @@
+﻿@*@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>*@
+
+
+
+@model IEnumerable<Driver>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Список водителей транспортного предприятия</h1>
+
+    <table class="table">
+        @{
+            bool flag = true;
+            @foreach (var item in Model)
+            {
+                if (flag)
+                {
+                    flag = false;
+                    <thead>
+                        <tr>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.DriverId)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.FIO)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.DriverLicenseData)</h4>
+                            </th>
+                            <th>
+                                <h4>@Html.DisplayNameFor(modelItem => item.DriverLicenseEndDate)</h4>
+                            </th>
+                        </tr>
+                    </thead>
+                }
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>@item.DriverId</label>
+                        </td>
+                        <td>
+                            <label>@item.FIO</label>
+                        </td>
+                        <td>
+                            <label>@item.DriverLicenseData</label>
+                        </td>
+                        <td>
+                            <label>@item.DriverLicenseEndDate</label>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        }
+    </table>
+</div>
